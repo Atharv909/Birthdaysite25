@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Rutuja!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float { animation: float 3s ease-in-out infinite; }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    .heartbeat { animation: heartbeat 2s ease-in-out infinite; }
+    @keyframes twinkle {
+      0% { opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ffd700; }
+      50% { box-shadow: 0 0 30px #ffd700, 0 0 40px #ffec27; }
+      100% { box-shadow: 0 0 10px #ffd700; }
+    }
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+    }
+    .hidden-image {
+      display: none;
+    }
+    /* Universe Background */
+    body {
+      background: radial-gradient(circle at center, #1a1a40 0%, #0d0d1f 70%, #000000 100%); /* Dark blue space background */
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Nebula Effect */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(72, 61, 139, 0.3), transparent 50%),
+                  radial-gradient(circle at 80% 30%, rgba(147, 112, 219, 0.2), transparent 50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* Stars */
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+      z-index: 1;
+    }
+    /* Sun */
+    .sun {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #ffd700, #ffec27);
+      border-radius: 50%;
+      box-shadow: 0 0 20px #ffd700;
+      animation: pulse 4s infinite;
+      z-index: 2; /* Above nebula and stars */
+    }
+    /* Planets */
+    .planet {
+      position: absolute;
+      border-radius: 50%;
+      animation: orbit linear infinite;
+      z-index: 2; /* Above nebula and stars */
+    }
+    .planet1 {
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #ff6347, #ff4500);
+      animation-duration: 10s;
+      top: 10%;
+      right: 10%;
+    }
+    .planet2 {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #4169e1, #483d8b);
+      animation-duration: 15s;
+      top: 12%;
+      right: 12%;
+    }
+    .planet3 {
+      width: 25px;
+      height: 25px;
+      background: radial-gradient(circle, #9acd32, #6b8e23);
+      animation-duration: 12s;
+      top: 8%;
+      right: 8%;
+    }
+    /* Rabbit Floating Animation */
+    .rabbit {
+      position: absolute;
+      width: 75px;
+      height: 150px;
+      background: url('rabbit.jpg') no-repeat center;
+      background-size: contain;
+      pointer-events: none;
+      z-index: 2; /* Below content */
+      animation: float 3s ease-in-out infinite;
+    }
+    .rabbit1 {
+      top: 30vh; /* Initial position beside the first photo */
+      left: 50vw; /* Initial position beside the first photo */
+    }
+    /* Adjust rabbit size for smaller screens */
+    @media (max-width: 768px) {
+      .rabbit1 {
+        top: 35vh; /* Slight adjustment for mobile layout */
+        left: 60vw; /* Further right on smaller screens */
+        width: 50px;
+        height: 100px; /* Smaller size to fit better */
+      }
+    }
+    /* Content Container */
+    .content-container {
+      position: relative;
+      z-index: 3; /* Above all space elements and rabbit */
+    }
+    header {
+      position: relative; /* Allow absolute positioning of rabbit within header */
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans text-center text-white relative">
+  <!-- Universe Elements -->
+  <div class="sun"></div>
+  <div class="planet planet1"></div>
+  <div class="planet planet2"></div>
+  <div class="planet planet3"></div>
+  <!-- Stars (Dynamic and Random) -->
+  <script>
+    function createStar() {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 90 + 'vh';
+      star.style.left = Math.random() * 90 + 'vw';
+      star.style.width = Math.random() * 3 + 1 + 'px';
+      star.style.height = star.style.width;
+      star.style.animationDelay = Math.random() * 3 + 's';
+      document.body.appendChild(star);
+    }
+    for (let i = 0; i < 20; i++) createStar(); // Reduced to 20 stars
+  </script>
+  <!-- Content -->
+  <div class="content-container">
+    <!-- Header -->
+    <header class="py-20 relative z-10">
+      <h1 class="text-5xl md:text-7xl font-bold float">Happy Birthday, Rutuja!</h1>
+      <img src="Homeimg.jpg" alt="Sample Landscape" class="mt-6 w-2/3 md:w-1/3 mx-auto">
+      <!-- Rabbit positioned beside the first photo -->
+      <div class="rabbit rabbit1"></div>
+      <p class="mt-4 text-xl md:text-2xl">The best photo of you I have, hoping to take better ones next time if you let me click, cause you don't know but you’re like a beautiful sunset that shines even at night.</p>
+      <p class="mt-4 text-2xl md:text-3xl">Wishing you all the light of this Universe</p>
+      <center><img id="birthday-image" src="Balance.png" alt="Rutuja's Balance"></center>
+    </header>
+    <!-- Vertical Image Column with Text and Image -->
+    <div class="flex flex-col justify-center gap-4 mt-6">
+      <div class="flex items-center justify-center gap-4">
+        <img src="piercing_mind.jpg" alt="Piercing Mind" class="w-1/6 mx-auto">
+        <p class="text-xl md:text-2xl text-center">Alright, we will convince your parents that you wanna turn yourself into a human pincushion XD</p>
+      </div>
+      <p class="text-xl md:text-2xl text-center">Happy Birthday, Rutuja! First of all, sorry for forgetting your birthday last year, huge huge apologies for that ;) I had planned a lot of things, but didn't make it on time because of my schedule. I would never make something like this unless they meant SOMETHING to me. There are many things which can't be expressed in words, so sometimes I turn those words into music, but this time I made this small website. You don't know you've got something that no woman has. You might not see it, but I do! Wanted to show you something <a href="gallery.html"><img src="gift_icon.png" alt="Click to see" class="inline-block w-16 h-16 cursor-pointer"></a>Click this image</p>
+      <p>
+        Looking 5 years back, it is unbelievable to see that we are 19 now, growing every day. Happy to see you so responsible and driven. May god power you every day to be emotionally as well as physically stronger! About the plans we've made I am truly waiting for that. Hope it works out and we at least get a day. Don't you forget, you've promised me to meet before the end of this year XD. If god permits this time, surely taking you to Dagduseth Ganpati. I am just missing our conversations as for the exam period we've got no time. I hope you do THE BEST in your exam. No pressure, I just want to see you happy and maybe if god permits you'll just kill it!! You've done your job god himself is the witness that's why stay calm. Whatever is in front of you, god will power you to face it. Really missing your songs and your Stephanie Soo XD, wanna hear her video summaries from you very soon (so many crying emojis...) This one is my all time favourite
+        <img src="ruafza.jpg" class="w-1/2 md:w-1/3 mx-auto mt-6">
+        huge apology for not recording "Blue" for you this time, ahhh just kidding I have atleast recorded the instrumental part for you click on this image below
+      </p>
+      <a href="video.html">
+        <img src="raisy.jpeg" class="w-1/2 md:w-1/3 mx-auto mt-6" alt="Click to play Blue instrumental">
+      </a>
+    </div>
+  </div>
+  <script>
+    // Rabbit Follow Cursor with Floating Effect
+    let rabbit = document.querySelector('.rabbit1');
+    let mouseX = 0, mouseY = 0;
+    let rabbitX = window.innerWidth * 0.5, rabbitY = window.innerHeight * 0.3; // Initial position beside the first photo
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX + window.scrollX;
+      mouseY = e.clientY + window.scrollY;
+    });
+
+    function updateRabbitPosition(timestamp) {
+      const dx = mouseX - rabbitX;
+      const dy = mouseY - rabbitY;
+      const speed = 0.1;
+      rabbitX += dx * speed;
+      rabbitY += dy * speed;
+
+      rabbit.style.left = `${rabbitX - 37.5}px`; // Adjust for rabbit width/2
+      rabbit.style.top = `${rabbitY - 75}px`; // Adjust for rabbit height/2
+
+      requestAnimationFrame(updateRabbitPosition);
+    }
+
+    requestAnimationFrame(updateRabbitPosition); // Single requestAnimationFrame call
+  </script>
+</body>
+</html>
