@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghibli art</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #6b48ff, #ff6f91); /* Attractive gradient background */
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+    }
+    .home-link {
+      color: #ffffff;
+      text-decoration: underline;
+      margin-left: 10px; /* Small gap between "You look cool!" and the link */
+      transition: color 0.3s ease;
+    }
+    .home-link:hover {
+      color: #ffd1dc; /* Light pink on hover for visual feedback */
+    }
+  </style>
+</head>
+<body class="font-sans text-center text-white">
+  <div class="flex flex-col items-center gap-12">
+    <img src="ghibli1.jpg" alt="Memory 1" class="w-3/4 md:w-1/2 rounded-lg shadow-lg">
+    <img src="ghibli2.jpg" alt="Memory 2" class="w-3/4 md:w-1/2 rounded-lg shadow-lg">
+    <div class="flex items-center">
+      <p>You look cool!</p>
+      <a href="index.html" class="home-link">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
